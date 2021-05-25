@@ -1,10 +1,14 @@
 import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View, Text, ImageBackground} from 'react-native';
+
+const image = { uri: "https://reactjs.org/logo-og.png" };
 
 const Home = () => {
     return (
         <View style={styles.container}>
-        <Text> TEst text </Text>
+            <ImageBackground source={image} style={styles.image}>
+
+            </ImageBackground>
         </View>
     )
 };
@@ -12,9 +16,14 @@ const Home = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItem: 'center',
+        alignItems: 'center',
         justifyContent: 'center'
     },
+    image: {
+        flex: 1,
+        resizeMode: "cover",
+        justifyContent: "center"
+      },
 })
 
 export default Home;
