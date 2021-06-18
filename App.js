@@ -3,26 +3,17 @@ import { StyleSheet, Text, View} from 'react-native';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import MapScreen from './components/screens/MapScreen';
-import MapListScreen from './components/screens/MapListScreen';
+import SightListScreen from './components/screens/SightListScreen';
 import { setNavigator } from './components/navigationRef';
+import SightScreen from './components/screens/SightScreen';
+import Navigate from './components/navigationRef';
+import NavigateTab from './components/navigationRef';
+import { NavigationContainer } from '@react-navigation/native';
 
-const switchNavigator = createSwitchNavigator({
-  mainFlow: createBottomTabNavigator({
-    MapList: MapListScreen,
-    Карта: MapScreen
-  })
-})
-
-const App = createAppContainer(switchNavigator)
-
-export default () => {
-  return(
-    <App 
-      ref= {navigator => {
-        setNavigator(navigator)
-      }}
-    />
+export default function App() {
+  return (
+    <NavigationContainer>
+    <Navigate />
+    </NavigationContainer>
   );
 }
-
-  

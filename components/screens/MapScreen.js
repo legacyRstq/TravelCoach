@@ -3,7 +3,7 @@ import { Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import Map from '../Map';
 
-const MapScreen = ({ navigation }) => {
+const MapScreen = () => {
     return(
         <SafeAreaView forceInset={{ top: "always" }}>
             <Map />

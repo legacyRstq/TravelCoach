@@ -1,11 +1,13 @@
 import React from 'react';
-import MapView from 'react-native-maps';
-import { StyleSheet, Dimensions } from 'react-native';
+import MapView, { Callout } from 'react-native-maps';
+import { StyleSheet, Dimensions, View, Text,Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 
 const height = Dimensions.get('window').height;
 
 const Map = () => {
+    const navigation = useNavigation();
     return(
         <MapView 
             style={style.map}
@@ -18,11 +20,11 @@ const Map = () => {
             }}>
                 <MapView.Marker 
                 coordinate={{
-                    latitude: 49.58777803398511,
-                    longitude:  34.543037135006365
+                    latitude: 49.5816582922676,
+                    longitude:  34.56960695260657
                 }}
-                title={'Test title'}
-                description={'Test decsription'}/>
+                title='Біла Альтанка'
+                description="Oригінальна пам'ятка у формі альтанки " onPress={() => navigation.navigate("Пам'ятка", {name: "Test name from map"})}/>
         </MapView>
     )
 };
@@ -30,6 +32,21 @@ const Map = () => {
 const style = StyleSheet.create({
     map: {
         height
+    },
+    window:{
+       flexDirection: 'row',
+       alignSelf: 'flex-start',
+       backgroundColor: '#fff',
+       borderColor: '#ccc',
+       borderWidth: 0.5, 
+       padding: 15,
+       width: 100,
+       height: 100
+    },
+    image:{
+        margin: 10,
+        height: 80,
+        width: 80
     }
 });
 
